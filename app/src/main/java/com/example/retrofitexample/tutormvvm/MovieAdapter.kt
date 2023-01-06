@@ -1,4 +1,4 @@
-package com.example.retrofitexample
+package com.example.retrofitexample.tutormvvm
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

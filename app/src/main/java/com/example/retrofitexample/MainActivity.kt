@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.retrofitexample.databinding.ActivityMainBinding
+import com.example.retrofitexample.tutormvvm.*
 
 class MainActivity : AppCompatActivity() {
         lateinit var viewModel: MainViewModel
@@ -21,7 +22,8 @@ class MainActivity : AppCompatActivity() {
             val mainRepository = MainRepository(retrofitService)
             binding.recyclerview.adapter = adapter
 
-            viewModel = ViewModelProvider(this, MyViewModelFactory(mainRepository)).get(MainViewModel::class.java)
+            viewModel = ViewModelProvider(this, MyViewModelFactory(mainRepository)).get(
+                MainViewModel::class.java)
 
 
             viewModel.movieList.observe(this) {

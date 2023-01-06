@@ -1,4 +1,4 @@
-package com.example.retrofitexample
+package com.example.retrofitexample.tutormvvm
 
 class MainRepository constructor(private val retrofitService: MovieService) {
 
