@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "RetrofitExample"
 include ':app'
 include ':weathertutorial'
+include ':githubclient'
