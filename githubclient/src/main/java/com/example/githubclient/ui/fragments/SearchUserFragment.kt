@@ -1,16 +1,24 @@
 package com.example.githubclient.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
-import com.example.githubclient.R
 import com.example.githubclient.databinding.FragmentSearchUserBinding
+import com.example.githubclient.ui.Navigation
 
 class SearchUserFragment : Fragment() {
     lateinit var binding: FragmentSearchUserBinding
+    lateinit var navigation: Navigation
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is Navigation) {
+            navigation = context
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +38,7 @@ class SearchUserFragment : Fragment() {
                 val bundle = Bundle()
                 bundle.putString("Username", userEditText.text.toString())
 
-                Navigation.createNavigateOnClickListener(
-                    R.id.action_searchUserFragment_to_repositoryListFragment,
-                    bundle
-                )
-                // FIXME fragment can't launch
+                navigation.openListRepo(bundle)
             }
         }
     }

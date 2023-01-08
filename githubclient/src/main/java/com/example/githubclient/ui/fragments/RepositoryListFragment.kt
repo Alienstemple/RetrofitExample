@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import com.example.githubclient.R
 import com.example.githubclient.data.RepositoryModel
 import com.example.githubclient.databinding.FragmentRepositoryListBinding
@@ -21,6 +23,7 @@ private const val ARG_PARAM1 = "Username"
 
 class RepositoryListFragment : Fragment() {
     private var userName: String? = null
+    private val reposViewModel: MainViewModel by viewModels()  // FragmentViewModelLazy
 
     lateinit var binding: FragmentRepositoryListBinding
 
@@ -45,7 +48,8 @@ class RepositoryListFragment : Fragment() {
 
         binding.repositoryList.layoutManager = LinearLayoutManager(requireContext())
 
-        val reposViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+//        val reposViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
         userName?.let {
             reposViewModel.getUserRepos(it)
         }
